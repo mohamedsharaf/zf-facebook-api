@@ -5,6 +5,7 @@ namespace Zf2mFacebook\Service;
 use InvalidArgumentException;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Facebook;
 
 class FacebookFactory implements FactoryInterface
 {
@@ -16,15 +17,15 @@ class FacebookFactory implements FactoryInterface
         if (!($config['config']['appId'] && $config['config']['secret'])) {
         	throw new InvalidArgumentException('Facebook configuration data \'appId\' and \'secret\' must bedefined in config');
         }
-        
+        //var_dump($serviceLocator->getRegisteredServices());exit;
         $facebook = new Facebook($config['config']);
         
         if($config['config']['setAppIdInHeadScript'])
         {
         	$script = sprintf('var FB_APP_ID = "%s";', $config['config']['appId']);
-        	$view = $serviceLocator->get('view');
-        	$headScript = $view->plugin('HeadScript');
-        	$headScript->prependScript($script);
+        	/** @var $view Zend\View\View */
+        	$view = $serviceLocator->get('ViewRenderer');
+        	$headScript = $view->plugin('HeadScript')->prependScript($script);
         }
 
         return $facebook;
