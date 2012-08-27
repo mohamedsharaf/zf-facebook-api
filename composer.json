@@ -13,7 +13,7 @@
             
         }
     ],
-    "homepage": "https://github.com/widmogrod/zf2-facebook-module/",
+    "homepage": "https://github.com/zf2-modules/zf2m-facebook/",
     "require": {
         "php": ">=5.3.3",
 		"zendframework/zendframework": "dev-master",
@@ -24,7 +24,7 @@
             "Zf2mFacebook": "src/"
         },
         "classmap": [
-            "./Module.php"
+            "./"
         ]
     }
 }
