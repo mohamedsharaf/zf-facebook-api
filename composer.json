@@ -1,0 +1,30 @@
+{
+    "name": "zf2-modules/zf2m-facebook",
+    "description": "Zend Framework 2 module adding a service to provide integration with Facebook php-sdk",
+    "type": "library",
+    "keywords": [
+        "facebook",
+        "zf2"
+    ],
+    "authors": [
+        {
+            "name": "Gianluca Giovinazzo",
+            "email": "g.giovinazzo@gmail.com"
+            
+        }
+    ],
+    "homepage": "https://github.com/widmogrod/zf2-facebook-module/",
+    "require": {
+        "php": ">=5.3.3",
+		"zendframework/zendframework": "dev-master",
+		"facebook/php-sdk": "dev-master"
+    },
+    "autoload": {
+    	"psr-0": {
+            "Zf2mFacebook": "src/"
+        }
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}
